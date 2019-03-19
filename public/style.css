@@ -1,0 +1,17 @@
+div {
+  margin: auto;
+  margin-top: 25%;
+  width: 60%;
+  border: 3px solid green;
+  padding: 70px 0;
+  text-align: center;
+}
+h1{
+	padding-bottom: 40px;
+}
+.btn {
+	display: block;
+	margin: auto;
+	margin-top: 10px;
+	width: 50%;
+}

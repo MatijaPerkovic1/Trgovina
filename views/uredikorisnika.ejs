@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel='stylesheet' href='styleTablica.css' />
+    <title></title>
+</head>
+
+<body>
+    <form name="editform" action="urediKorisnika" method="post" accept-charset="utf-8">
+        <h1>Uredi korisnika</h1>
+        <input type="hidden" name="id" value="<%=data[0].id  %>" />
+        <div class="row">
+            <label>ID korisnika：</label>
+            <input type="text" name="idkorisnika" placeholder="ID korisnika" value="<%=data[0].id %>" readonly  />
+        </div>
+        <div class="row">
+            <label>Ime：</label>
+            <input type="text" name="ime" placeholder="Ime" value="<%=data[0].ime  %>" />
+        </div>
+        <div class="row">
+            <label>Prezime：</label>
+            <input type="text" name="prezime" placeholder="Prezime" value="<%=data[0].prezime  %>" />
+        </div>
+        <div class="row">
+            <label>ID uloge：</label>
+            <input type="text" name="iduloga" placeholder="ID uloge" value="<%=data[0].uloga_id  %>">
+        </div>
+        <div class="row">
+            <input class="btn" type='submit' value='Submit'>
+        </div>
+    </form>
+</body>
+
+</html>

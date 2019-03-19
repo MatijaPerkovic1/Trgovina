@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel='stylesheet' href='styleTablica.css'>
+    <script>
+    function Edit(id) {
+        window.location.href = "/urediproizvod?id=" + id;
+    }
+
+    function Delete(id) {
+        var rs = confirm('Sigurno želite obrisati?');
+        if (rs) {
+            window.location.href = "/obrisiproizvod?id=" + id;
+        }
+    }
+    function dodaj() {
+  		var x = document.getElementById("korisnikdodaj");
+  		if (x.style.display === "none") {
+   			 x.style.display = "flex";
+  		} else {
+    	x.style.display = "none";
+  		}
+	}
+    </script>
+</head>
+
+<body>
+    <h1><%= title %></h1>
+    <button onclick="dodaj()" class="btn btn-primary">Dodaj Proizvod</button>
+    <div style="display:none;width:100%;" id="korisnikdodaj">
+    <form name="dodajform" action="dodajProizvod" method="post" accept-charset="utf-8">
+        <h4>Dodaj proizvod</h4>
+        <div class="row">
+            <label>Naziv： </label>
+            <input type="text" name="naziv" placeholder="Naziv">
+        </div>
+        <div class="row">
+            <label>Cijena：</label>
+            <input type="text" name="cijena" placeholder="Cijena">
+        </div>
+        <div class="row">
+            <label>Količina：</label>
+            <input type="text" name="kolicina" placeholder="Količina">
+        </div>
+        <div class="row">
+            <label>PDV kategorija：</label>
+            <input type="text" name="pdvkategorija" placeholder="PDV kategorija">
+        </div>
+        <div class="row">
+            <label>ID Dobavljača：</label>
+            <input type="text" name="dobavljacid" placeholder="ID Dobavljača">
+        </div>
+        <div class="row">
+            <input class="btn" type='submit' value='Dodaj'>       
+        </div>
+    </form>
+    </div>
+    <table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th>Id</th>
+            <th>Naziv</th>
+            <th>Cijena</th>
+            <th>Količina</th>
+            <th>PDV kategorija</th>
+            <th>ID dobavljača</th>
+            <th>Dobavljač</th>
+            <th>Uredi</th>
+        </tr>
+    </thead>
+            <% for ( var i = 0 ; i < data.length ; i++){ %>
+            <tr>
+                <td>
+                    <%= data[i].id  %>
+                </td>
+                <td>
+                    <%= data[i].naziv  %>
+                </td>
+                <td>
+                    <%= data[i].cijena  %>
+                </td>
+                <td>
+                    <%= data[i].kolicina  %>
+                </td>
+                <td>
+                    <%= data[i].pdv_kategorija  %>
+                </td>
+                <td>
+                    <%= data[i].id_dobavljac  %>
+                </td>
+                <td>
+                    <%= data[i].dobavljac  %>
+                </td>
+                <td>
+                    <input type="button" name="uredi" value="Uredi" class="btn btn-info" onclick="Edit('<%= data[i].id  %>');" />
+                    <input type="button" name="obrisi" value="Obriši" class="btn btn-danger" onclick="Delete('<%= data[i].id  %>');" />
+                </td>
+            </tr>
+            <% } %>
+    </table>
+</body>
+
+</html>

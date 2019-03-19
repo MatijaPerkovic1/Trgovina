@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel='stylesheet' href='styleTablica.css' />
+    <title></title>
+</head>
+
+<body>
+    <form name="editform" action="urediproizvod" method="post" accept-charset="utf-8">
+        <h1>Uredi proizvod</h1>
+        <input type="hidden" name="id" value="<%=data[0].id  %>" />
+        <div class="row">
+            <label>ID proizvoda：</label>
+            <input type="text" name="idproizvoda" placeholder="ID proizvoda" value="<%=data[0].id %>" readonly  />
+        </div>
+        <div class="row">
+            <label>Naziv：</label>
+            <input type="text" name="naziv" placeholder="Naziv" value="<%=data[0].naziv  %>" />
+        </div>
+        <div class="row">
+            <label>Cijena：</label>
+            <input type="text" name="cijena" placeholder="Cijena" value="<%=data[0].cijena  %>" />
+        </div>
+        <div class="row">
+            <label>Količina：</label>
+            <input type="text" name="kolicina" placeholder="Količina" value="<%=data[0].kolicina  %>">
+        </div>
+        <div class="row">
+            <label>PDV kategorija：</label>
+            <input type="text" name="pdvkategorija" placeholder="PDV kategorija" value="<%=data[0].pdv_kategorija  %>">
+        </div>
+        <div class="row">
+            <label>ID dobavljača：</label>
+            <input type="text" name="dobavljacid" placeholder="ID dobavljača" value="<%=data[0].id_dobavljac  %>">
+        </div>
+        <div class="row">
+            <input class="btn" type='submit' value='Uredi'>
+        </div>
+    </form>
+</body>
+
+</html>
